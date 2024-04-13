@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8 ">
+        <title>Personal Information</title>
+        <style>
+            body
+            {
+                background-image: url('kali.jpg');
+                background-attachment: fixed;
+                background-size: cover;
+    
+            }
+        </style>
+  <h1 style="color:antiquewhite;text-align: center;;">About me</h1>
+
+    </head>
+    
+    <body>
+      <ul>
+
+        <li>
+          <button>
+            <a href="index.html">Login</a>
+          </button>
+        </li>
+
+        <li>
+          <button>
+            <a href="index.html">Sign in</a>
+          </button>
+        </li>
+
+
+      </ul>
+        
+        <p style="color:aquamarine; text-align: center;font-family: bioRhyme;font-size: 30px;background-color: rgb(37, 40, 8);"><b>In this website I  will publish my coding contents. A new website is under building that will contain my Architectural contents.</b></br>
+            <b>Thank you.</b>
+        </p>
+      <p style="color:white;font-size: 16px;"><em><mark>I love to code.কিন্তু আমি জানি না আমার এইখানে কি কি দেওয়া উচিত। হেহেহে</mark></em></p>
+      <p style="color:chartreuse">
+        Abhi says, <blockquote style="color:rgb(127, 255, 0)">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, expedita alias sequi impedit minus facilis molestias nemo possimus, nesciunt odit repellendus eius perferendis reprehenderit ducimus nam aliquid illo iure repellat?</blockquote>
+   
+
+      </p>
+      <a href="https://web.whatsapp.com/"><p align="center"><button style="align-items: center;">Whats app</button></p></a></body><br>
+    </br>
+      <ul id="messages"></ul>
+      <form action="">
+        <input id="message-input" type="text" placeholder="Type a message..." autocomplete="off" autofocus />
+        <button id="send-button">Send</button>
+      </form>
+    
+      <script src="/socket.io/socket.io.js"></script>
+      <script>
+        const socket = io();
+        const messagesList = document.getElementById('messages');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+    
+        sendButton.addEventListener('click', () => {
+          const message = messageInput.value;
+          if (message) {
+            socket.emit('chat message', message);
+            messageInput.value = '';
+          }
+        });
+    
+        socket.on('chat message', (msg) => {
+          const li = document.createElement('li');
+          li.textContent = msg;
+          messagesList.appendChild(li);
+        });
+      </script>
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simple Chat App</title>
+        <style>
+          /* Add some basic styling */
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+          }
+      
+          #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+          }
+      
+          #messages li {
+            padding: 5px 10px;
+          }
+      
+          #message-input {
+            width: calc(100% - 60px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+          }
+      
+          #send-button {
+            width: 50px;
+            padding: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+          }
+        </style>
+      </head>
+      <body>
+        <ul id="messages"></ul>
+        <form action="">
+          <input id="message-input" type="text" placeholder="Type a message..." autocomplete="off" autofocus />
+          <button id="send-button">Send</button>
+        </form>
+      
+        <script>
+          // Mock server-side code using setTimeout to simulate real-time communication
+          const messagesList = document.getElementById('messages');
+          const messageInput = document.getElementById('message-input');
+          const sendButton = document.getElementById('send-button');
+      
+          sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            if (message) {
+              // Mock sending a message to the server
+              setTimeout(() => {
+                const li = document.createElement('li');
+                li.textContent = message;
+                messagesList.appendChild(li);
+                messageInput.value = '';
+              }, 500);
+            }
+          });
+      
+          // Mock receiving a message from the server
+          setTimeout(() => {
+            const li = document.createElement('li');
+            li.textContent = 'Hello, this is a mock message from the server!';
+            messagesList.appendChild(li);
+          }, 2000);
+      
+          // Add event listener for Enter key press
+          messageInput.addEventListener('keypress', (event) => {
+            if (event.keyCode === 13) {
+              event.preventDefault();
+              sendButton.click();
+            }
+          });
+        </script>
+        </html>
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login Page</title>
+<link rel="icon" href="humba.png" type="image/png"> 
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('peakpx.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(175, 241, 153, 0.9); /* Transparent background */
+    background: transparent;
+    border: 2px solid rgba(175, 241, 153, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+    padding: 40px;
+    width: 300px;
+    color:#5b331d;
+    text-shadow: #72ad5e;
+    position: relative; /* Required for absolute positioning of shine effect */
+    overflow: hidden; /* Ensure the shine effect doesn't overflow */
+}
+
+/* Shine effect */
+.container::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(227, 119, 119, 0.15) 0%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0) 70%,
+        rgba(255, 255, 255, 0.15) 100%
+    );
+    border-radius: 50%;
+    transition: all 1s ease-out; /* Smooth transition for the shine effect */
+}
+
+/* Trigger the shine effect on hover */
+.container:hover::after {
+    top: 150%;
+    left: 150%;
+}
+.container h2 {
+    text-align: center;
+}
+
+.container input[type="text"],
+.container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #72ad5e;
+    border-radius: 5px;
+}
+
+.container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<style>
+    .wmpp {
+        position:relative;
+        width: 300px; /* Adjust according to your needs */
+        height: 300px; /* Adjust according to your needs */
+        overflow:clip;
+        border: 2px solid transparent; /* Initial border color */
+        border-radius: 300px;
+    }
+
+    .wmpp:hover {
+        border-color:; /* Blueish flame color */
+    }
+
+    .wmpp img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50%; /* Adjust the size of the image */
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .wmpp:hover img {
+        opacity: 1;
+    }
+</style>
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color:#32432c;text-align: center;">Department of Architecture</h1>
+    <h4 style="color:rgb(35, 51, 45); text-align: center;">BSMRSTU</h4>
+    <h2>Login</h2>
+    <form action="#">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="#">Sign up</a></p>
+    
+</div>
+<div class="wmpp">
+  <a href="https://www.bsmrstu.edu.bd/dev/dept/?id=architecture" >
+  <img src="humba.png" alt="Humba" />
+</a>
+
+</body>
+</html>

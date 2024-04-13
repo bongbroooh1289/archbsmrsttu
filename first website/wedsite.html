@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Chat App</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    #messages li {
+      padding: 5px 10px;
+    }
+
+    #message-input {
+      width: calc(100% - 60px);
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    #send-button {
+      width: 50px;
+      padding: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <form action="">
+    <input id="message-input" type="text" placeholder="Type a message..." autocomplete="off" autofocus />
+    <button id="send-button">Send</button>
+  </form>
+
+  <script>
+    // Mock server-side code using setTimeout to simulate real-time communication
+    const messagesList = document.getElementById('messages');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      if (message) {
+        // Mock sending a message to the server
+        setTimeout(() => {
+          const li = document.createElement('li');
+          li.textContent = message;
+          messagesList.appendChild(li);
+          messageInput.value = '';
+        }, 500);
+      }
+    });
+
+    // Mock receiving a message from the server
+    setTimeout(() => {
+      const li = document.createElement('li');
+      li.textContent = 'Hello, this is a mock message from the server!';
+      messagesList.appendChild(li);
+    }, 2000);
+
+    // Add event listener for Enter key press
+    messageInput.addEventListener('keypress', (event) => {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        sendButton.click();
+      }
+    });
+  </script>
+</body>
+</html>
